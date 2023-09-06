@@ -1,5 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useState } from 'react';
+import { Alert } from 'react-native';
 
 import {
   Container,
@@ -14,6 +15,11 @@ export default function CreateNote({ navigation }) {
   const [body, setBody] = useState('');
 
   async function saveNote() {
+    if (title == '' || body == '') {
+      Alert.alert('Erro', 'Preencha todos os campos!');
+      return;
+    }
+
     const note = {
       title,
       body

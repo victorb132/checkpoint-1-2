@@ -31,7 +31,7 @@ export default function Home({ navigation }) {
           renderItem={({ item, index }) => (
             <CardButton onPress={() => handleNavigateToDetails(item)}>
               <ContainerCard>
-                <Card title={item.title} body={item.body} index={index} />
+                <Card title={item.title} body={item.body.substring(0, 32)} index={index} />
               </ContainerCard>
             </CardButton>
           )}
